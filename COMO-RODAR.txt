@@ -1,0 +1,95 @@
+==========================================================
+  COMO RODAR O PROJETO CRUZEIRO — PASSO A PASSO NO TERMINAL
+==========================================================
+
+Abra o app "Terminal" do Mac (Cmd + Espaço, digite "Terminal", Enter).
+Digite cada comando abaixo e aperte Enter depois de cada um.
+
+
+----------------------------------------------------------
+PRIMEIRA VEZ (só precisa fazer uma vez)
+----------------------------------------------------------
+
+1) Entrar na pasta do projeto:
+
+   cd ~/Documents/ProjetoCruzeiro
+
+2) Conferir se o Node.js está instalado (deve mostrar v20 ou maior):
+
+   node -v
+
+   Se der erro, instale o Node em https://nodejs.org (versão LTS).
+
+3) Instalar as dependências do projeto:
+
+   npm install
+
+
+----------------------------------------------------------
+TODA VEZ QUE QUISER ABRIR O SITE
+----------------------------------------------------------
+
+1) Entrar na pasta:
+
+   cd ~/Documents/ProjetoCruzeiro
+
+2) Iniciar o servidor:
+
+   npm start
+
+3) Vai aparecer a mensagem:
+   "Projeto Cruzeiro rodando em http://localhost:3000"
+
+4) Abra o navegador e acesse:
+
+   http://localhost:3000
+
+IMPORTANTE: deixe o Terminal aberto enquanto usa o site.
+Para DESLIGAR o servidor, clique no Terminal e aperte:  Ctrl + C
+
+
+----------------------------------------------------------
+SE DER ERRO "EADDRINUSE" (porta 3000 ocupada)
+----------------------------------------------------------
+
+Opção A — rodar em outra porta:
+
+   PORT=3001 npm start
+
+   e acesse http://localhost:3001
+
+Opção B — fechar o que está usando a porta 3000:
+
+   lsof -ti :3000 | xargs kill
+
+
+----------------------------------------------------------
+ENVIAR ALTERAÇÕES PARA O GITHUB
+----------------------------------------------------------
+
+Depois de modificar arquivos ou adicionar imagens:
+
+   cd ~/Documents/ProjetoCruzeiro
+   git add .
+   git commit -m "Descreva aqui o que você mudou"
+   git push
+
+Para ver o que mudou antes de enviar:
+
+   git status
+
+
+----------------------------------------------------------
+ADICIONAR AS IMAGENS
+----------------------------------------------------------
+
+Coloque as imagens na pasta:  frontend/assets/images/
+com estes nomes exatos:
+
+   escudo.png   -> escudo (fundo transparente)
+   hero.jpg     -> banner da página inicial
+   estadio.jpg  -> fundo do "Próximo jogo" e da página de jogos
+   torcida.jpg  -> seção "A Raposa de Minas"
+   partida.jpg  -> topo da página de detalhes da partida
+
+Depois recarregue a página no navegador (Cmd + Shift + R).

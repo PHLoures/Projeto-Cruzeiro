@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes da partida · Cruzeiro</title>
+  <meta name="description" content="Jogos, resultados e detalhes das partidas do Cruzeiro Esporte Clube na temporada 2026.">
+  <link rel="icon" href="assets/images/estrelas.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <nav class="container">
+      <a class="brand" href="index.html"><img data-escudo src="assets/images/escudo.png" alt="Escudo do Cruzeiro"><strong>Cruzeiro</strong></a>
+      <ul class="nav-links">
+        <li><a href="index.html" >Início</a></li>
+        <li><a href="jogos.html" >Jogos 2026</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="partida-header">
+      <div class="container" id="cabecalho">
+        <a class="voltar" href="jogos.html">← Voltar para os jogos</a>
+        <div class="carregando" style="color:#fff">Carregando partida…</div>
+      </div>
+    </section>
+    <div class="container"><div class="detalhes-grid" id="detalhes"></div></div>
+  </main>
+  <footer class="rodape">
+    <div class="container">
+      <a class="brand" href="index.html"><img data-escudo src="assets/images/escudo.png" alt=""><strong>Cruzeiro</strong></a>
+      <p>Projeto de fã, sem vínculo oficial com o clube · Dados: API pública da ESPN · <span id="ano"></span></p>
+    </div>
+  </footer>
+  <script src="js/common.js"></script>
+  <script src="js/partida.js"></script>
+</body>
+</html>

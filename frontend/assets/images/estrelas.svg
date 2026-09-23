@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Cruzeiro do Sul: 4 estrelas grandes + 1 menor (arte original do projeto) -->
+  <rect width="64" height="64" rx="14" fill="#0033a0"/>
+  <g fill="#fff">
+    <path id="s" d="M0-6 1.8-1.9 6-1.9 2.6.7 3.9 5 0 2.4-3.9 5-2.6.7-6-1.9-1.8-1.9Z"/>
+    <use href="#s" transform="translate(32 13) scale(1.1)"/>
+    <use href="#s" transform="translate(32 51) scale(1.1)"/>
+    <use href="#s" transform="translate(14 30) scale(1.1)"/>
+    <use href="#s" transform="translate(50 28) scale(1.1)"/>
+    <use href="#s" transform="translate(41 40) scale(.7)"/>
+  </g>
+</svg>

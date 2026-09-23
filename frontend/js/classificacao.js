@@ -5,8 +5,8 @@ const cacheDados = {};
 // Faixas do Brasileirão (a ESPN não informa as zonas). Podem variar conforme os campeões das copas.
 const ZONAS_BRASILEIRAO = [
   { de: 1, ate: 4, nome: 'Libertadores (fase de grupos)', cor: '#16a34a' },
-  { de: 5, ate: 6, nome: 'Pré-Libertadores', cor: '#65c38a' },
-  { de: 7, ate: 12, nome: 'Copa Sul-Americana', cor: '#3d7bff' },
+  { de: 5, ate: 5, nome: 'Pré-Libertadores', cor: '#65c38a' },
+  { de: 6, ate: 11, nome: 'Copa Sul-Americana', cor: '#3d7bff' },
   { de: 17, ate: 20, nome: 'Rebaixamento', cor: '#dc2626' },
 ];
 

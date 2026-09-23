@@ -76,3 +76,13 @@ document.querySelectorAll('img[data-escudo]').forEach((img) => {
 
 const anoRodape = document.getElementById('ano');
 if (anoRodape) anoRodape.textContent = new Date().getFullYear();
+
+// Botão de modo claro/escuro (a escolha fica salva no navegador)
+const botaoTema = document.getElementById('tema');
+if (botaoTema) {
+  botaoTema.addEventListener('click', () => {
+    const novo = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = novo;
+    try { localStorage.setItem('tema', novo); } catch (e) { /* navegador sem armazenamento */ }
+  });
+}

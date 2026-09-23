@@ -11,4 +11,4 @@ o site usa um fundo em degradê azul (ou o escudo oficial da ESPN), então nada 
 | `torcida.jpg`  | Seção "O Clube" da página inicial              | Paisagem ou quadrada, ≥ 1200px |
 | `partida.jpg`  | Topo da página de detalhes da partida          | Paisagem, ≥ 1600×900           |
 
-`estrelas.svg` é o favicon (as cinco estrelas) e já faz parte do projeto.
+`raposa.svg` é a raposa em vetor (favicon, rodapé e marca d'água nas seções do clube) e já faz parte do projeto.

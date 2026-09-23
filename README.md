@@ -11,6 +11,8 @@ Frontend em HTML/CSS/JavaScript puro e uma API própria em Node.js + Express que
 - **Detalhes da partida:** ficha técnica (estádio, cidade, árbitro, público), gols e assistências, cartões, substituições, estatísticas comparativas e escalações com formação e reservas.
 - Competições: Brasileirão Série A, Copa do Brasil, Libertadores, Sul-Americana e Campeonato Mineiro.
 - Layout responsivo (celular, tablet e desktop).
+- **Modo escuro:** segue o tema do sistema e pode ser trocado pelo botão ☾ na barra (a escolha fica salva).
+- **História** e **Títulos** em páginas próprias; a raposa (`raposa.svg`) é usada como favicon, no rodapé e como marca d'água.
 
 ## Tecnologias
 

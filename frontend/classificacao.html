@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes da partida · Cruzeiro</title>
+  <title>Classificação · Cruzeiro</title>
   <meta name="description" content="Jogos, resultados e detalhes das partidas do Cruzeiro Esporte Clube na temporada 2026.">
   <link rel="icon" href="assets/images/raposa.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css?v=20260923163916">
@@ -20,7 +20,7 @@
       <ul class="nav-links">
         <li class="so-desktop"><a href="index.html">Início</a></li>
         <li><a href="jogos.html"><span class="longo">Jogos 2026</span><span class="curto">Jogos</span></a></li>
-        <li><a href="classificacao.html"><span class="longo">Classificação</span><span class="curto">Tabela</span></a></li>
+        <li><a href="classificacao.html" class="ativo"><span class="longo">Classificação</span><span class="curto">Tabela</span></a></li>
         <li><a href="historia.html">História</a></li>
         <li><a href="titulos.html">Títulos</a></li>
       </ul>
@@ -32,13 +32,24 @@
     </nav>
   </header>
   <main>
-    <section class="partida-header">
-      <div class="container" id="cabecalho">
-        <a class="voltar" href="jogos.html">← Voltar para os jogos</a>
-        <div class="carregando" style="color:#fff">Carregando partida…</div>
+    <section class="page-header">
+      <div class="container">
+        <span class="hero-tag">Temporada 2026</span>
+        <h1>Classificação</h1>
+        <p>A posição do Cruzeiro em cada competição, atualizada com os dados da ESPN.</p>
       </div>
     </section>
-    <div class="container"><div class="detalhes-grid" id="detalhes"></div></div>
+    <div class="container">
+      <div class="filtros">
+        <div class="abas abas-rolagem" id="abas-comp" role="tablist">
+          <button data-comp="bra.1" class="ativo">Brasileirão</button>
+          <button data-comp="conmebol.libertadores">Libertadores</button>
+          <button data-comp="bra.copa_do_brazil">Copa do Brasil</button>
+          <button data-comp="bra.camp.mineiro">Mineiro</button>
+        </div>
+      </div>
+      <div id="conteudo"><div class="carregando">Carregando classificação…</div></div>
+    </div>
   </main>
   <footer class="rodape">
     <div class="container">
@@ -47,6 +58,6 @@
     </div>
   </footer>
   <script src="js/common.js?v=20260923163916"></script>
-  <script src="js/partida.js?v=20260923163916"></script>
+  <script src="js/classificacao.js?v=20260923163916"></script>
 </body>
 </html>

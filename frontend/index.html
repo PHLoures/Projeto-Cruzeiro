@@ -6,7 +6,7 @@
   <title>Cruzeiro Esporte Clube · Temporada 2026</title>
   <meta name="description" content="Jogos, resultados e detalhes das partidas do Cruzeiro Esporte Clube na temporada 2026.">
   <link rel="icon" href="assets/images/raposa.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20260923163916">
   <script>
     // Aplica o tema salvo antes de desenhar a página (evita "piscar")
     try { document.documentElement.dataset.theme = localStorage.getItem('tema') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {}
@@ -18,8 +18,9 @@
       <a class="brand" href="index.html"><img data-escudo src="assets/images/escudo.png" alt="Escudo do Cruzeiro"><strong>Cruzeiro</strong></a>
       <div class="nav-direita">
       <ul class="nav-links">
-        <li><a href="index.html" class="ativo">Início</a></li>
-        <li><a href="jogos.html">Jogos 2026</a></li>
+        <li class="so-desktop"><a href="index.html" class="ativo">Início</a></li>
+        <li><a href="jogos.html"><span class="longo">Jogos 2026</span><span class="curto">Jogos</span></a></li>
+        <li><a href="classificacao.html"><span class="longo">Classificação</span><span class="curto">Tabela</span></a></li>
         <li><a href="historia.html">História</a></li>
         <li><a href="titulos.html">Títulos</a></li>
       </ul>
@@ -95,7 +96,7 @@
       <p class="creditos">Desenvolvido por <strong>Pedro Henrique Loures</strong>, torcedor apaixonado do Cruzeiro.<br>Este site <strong>não é oficial</strong> e não tem vínculo com o Cruzeiro Esporte Clube · Dados: API pública da ESPN · <span id="ano"></span></p>
     </div>
   </footer>
-  <script src="js/common.js"></script>
-  <script src="js/home.js"></script>
+  <script src="js/common.js?v=20260923163916"></script>
+  <script src="js/home.js?v=20260923163916"></script>
 </body>
 </html>

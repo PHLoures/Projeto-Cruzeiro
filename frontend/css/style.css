@@ -377,3 +377,122 @@ a.jogo:hover { transform: translateY(-2px); border-left-color: var(--destaque); 
   .tema-btn { width: 32px; height: 32px; }
   .clube::before { width: 320px; right: -60px; }
 }
+
+/* ---------- Classificação ---------- */
+.abas-rolagem { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.abas-rolagem button { white-space: nowrap; }
+.tabela-card { padding: 8px 0; margin-bottom: 20px; overflow: hidden; }
+.tabela-titulo { font-family: var(--fonte-titulo); text-transform: uppercase; color: var(--destaque); font-size: 1.3rem; padding: 12px 20px 4px; }
+.tabela-rolagem { overflow-x: auto; }
+.tabela { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.tabela th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--texto-suave); font-weight: 700; padding: 10px 8px; text-align: center; }
+.tabela td { padding: 10px 8px; text-align: center; border-top: 1px solid var(--borda); font-variant-numeric: tabular-nums; }
+.tabela .clube-col { text-align: left; }
+.tabela td.clube-col { font-weight: 600; min-width: 170px; }
+.clube-cel { display: flex; align-items: center; gap: 10px; }
+.clube-cel img, .clube-cel .escudo-generico { width: 26px; height: 26px; object-fit: contain; font-size: 0.7rem; }
+.tabela .pos span { display: inline-block; min-width: 30px; padding: 2px 0 2px 6px; font-weight: 700; }
+.tabela .pts { font-weight: 800; color: var(--destaque); }
+.tabela tr.linha-cruzeiro td { background: var(--celeste); }
+.tabela tr.linha-cruzeiro .clube-cel span { color: var(--destaque); font-weight: 800; }
+.tabela tbody tr:hover td { background: var(--celeste); }
+.legenda { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; font-size: 0.85rem; color: var(--texto-suave); margin: -4px 0 24px; }
+.legenda i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.legenda small { flex-basis: 100%; font-size: 0.78rem; }
+.outros-grupos { margin-bottom: 20px; }
+.outros-grupos summary { cursor: pointer; font-weight: 700; color: var(--destaque); padding: 12px 0; }
+.grupos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 0 20px; margin-top: 8px; }
+.confronto-copa { margin-bottom: 28px; }
+.confronto-copa .fase { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 12px; font-size: 1rem; }
+.confronto-copa .fase b { font-family: var(--fonte-titulo); text-transform: uppercase; font-size: 1.3rem; color: var(--destaque); }
+.confronto-copa .chip { margin: 0; }
+.chip-v { background: var(--vitoria); color: #fff; }
+.chip-d { background: var(--derrota); color: #fff; }
+.agregado { font-size: 0.85rem; color: var(--texto-suave); font-weight: 600; }
+@media (max-width: 560px) {
+  .tabela .opc { display: none; }
+  .tabela td, .tabela th { padding: 9px 5px; }
+  .tabela td.clube-col { min-width: 0; font-size: 0.85rem; }
+  .grupos-grid { grid-template-columns: 1fr; }
+}
+
+/* Menu: rótulos curtos no celular (o escudo já leva ao início) */
+.nav-links .curto { display: none; }
+@media (max-width: 560px) {
+  .nav-links .so-desktop { display: none; }
+  .nav-links .longo { display: none; }
+  .nav-links .curto { display: inline; }
+  .abas.abas-rolagem { justify-content: flex-start; }
+  .abas.abas-rolagem { display: flex; width: 100%; }
+  .abas-rolagem button { flex: 1; padding: 8px 4px; font-size: 0.8rem; }
+}
+
+/* ---------- Chaveamento ---------- */
+.chave-rolagem { overflow-x: auto; padding-bottom: 8px; }
+.chave { --linha-chave: rgba(110, 135, 195, 0.6); display: grid; grid-template-columns: repeat(var(--fases), minmax(250px, 1fr)); gap: 28px; min-width: calc(var(--fases) * 250px + (var(--fases) - 1) * 28px); }
+.chave-fase h4 {
+  flex-shrink: 0;
+  font-family: var(--fonte-titulo); text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem;
+  color: var(--destaque); text-align: center; padding-bottom: 10px; margin-bottom: 12px; border-bottom: 2px solid var(--borda);
+}
+.chave-fase { display: flex; flex-direction: column; }
+/* Cada fase tem metade dos confrontos da anterior; como todas as colunas têm a mesma altura
+   e cada "slot" ocupa uma fração igual, o confronto seguinte fica exatamente no meio do par que o alimenta. */
+.chave-coluna { flex: 1; display: flex; flex-direction: column; }
+.chave-slot { flex: 1; position: relative; display: flex; align-items: center; padding: 5px 0; }
+.chave-item { position: relative; width: 100%; }
+.chave-confronto {
+  position: relative; display: block; background: var(--superficie); border: 1px solid var(--borda); border-radius: 12px;
+  box-shadow: var(--sombra); transition: 0.2s;
+}
+/* Conectores: "]" juntando cada par e um traço entrando no confronto seguinte (o gap entre colunas é 28px) */
+.chave-fase:not(:last-child) .chave-slot::after {
+  content: ''; position: absolute; right: -14px; width: 14px; border-right: 2px solid var(--linha-chave);
+}
+.chave-fase:not(:last-child) .chave-slot:nth-child(odd)::after { top: 50%; bottom: 0; border-top: 2px solid var(--linha-chave); border-top-right-radius: 6px; }
+.chave-fase:not(:last-child) .chave-slot:nth-child(even)::after { top: 0; bottom: 50%; border-bottom: 2px solid var(--linha-chave); border-bottom-right-radius: 6px; }
+.chave-fase:not(:last-child) .chave-slot:only-child::after { top: 50%; bottom: auto; height: 0; border-right: 0; border-bottom: 0; border-radius: 0; }
+.chave-fase:not(:first-child) .chave-slot::before {
+  content: ''; position: absolute; left: -14px; top: 50%; width: 14px; border-top: 2px solid var(--linha-chave);
+}
+/* O quadro de campeão fica abaixo da final sem tirá-la do centro */
+.chave:has(.campeao) { padding-bottom: 84px; }
+.chave-item .campeao { position: absolute; left: 0; right: 0; top: 100%; margin-top: 16px; }
+.chave-confronto.destaque { border: 2px solid var(--destaque); }
+a.chave-confronto.destaque:hover { transform: translateY(-2px); }
+.chave-time { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; align-items: center; gap: 7px; padding: 5px 10px; font-size: 0.8rem; font-weight: 600; }
+.chave-time + .chave-time { border-top: 1px solid var(--borda); }
+.chave-time img, .chave-time .escudo-generico { width: 20px; height: 20px; object-fit: contain; font-size: 0.6rem; }
+.chave-time .nome { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chave-time b { font-family: var(--fonte-titulo); font-size: 1.05rem; min-width: 16px; text-align: right; }
+/* Ida e volta: duas colunas pequenas com cada placar + o agregado em destaque */
+.chave-time.ida-volta, .chave-cab { grid-template-columns: 20px minmax(0, 1fr) 24px 30px 28px; }
+.chave-cab { display: grid; gap: 7px; padding: 4px 10px 0; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0; color: var(--texto-suave); font-weight: 700; }
+.chave-cab span { text-align: center; }
+.chave-cab span:last-child { text-align: center; }
+.chave-time .perna { text-align: center; font-size: 0.78rem; color: var(--texto-suave); font-variant-numeric: tabular-nums; }
+.chave-time.ida-volta b { background: var(--celeste); border-radius: 5px; text-align: center; padding: 0 2px; }
+.chave-time.caiu { opacity: 0.45; }
+.chave-time.passou .nome { font-weight: 800; }
+.chave-time.eh-cruzeiro .nome { color: var(--destaque); }
+.chave-confronto .pen { display: block; text-align: center; font-size: 0.65rem; color: var(--texto-suave); padding: 0 0 4px; }
+.campeao {
+  text-align: center; padding: 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  color: #7a5b00; background: linear-gradient(135deg, #ffe58a, var(--ouro));
+}
+.campeao strong { display: block; font-size: 1.05rem; text-transform: none; letter-spacing: 0; color: #3b2c00; }
+
+/* ---------- Rivalidade ---------- */
+/* Brincadeira de cruzeirense: o escudo do Atlético-MG (ID 7632 na ESPN) sempre aparece de cabeça para baixo */
+img[src*="/7632.png"] { transform: rotate(180deg); }
+
+/* Menu em telas médias (tablet/janela estreita): rótulos curtos, sem quebrar linha */
+.nav-links a { white-space: nowrap; }
+@media (max-width: 900px) {
+  .nav-links .longo { display: none; }
+  .nav-links .curto { display: inline; }
+}
+@media (max-width: 900px) {
+  .brand strong { display: none; }          /* o escudo já identifica o site */
+  .nav-links .so-desktop { display: none; } /* o escudo leva ao início */
+}

@@ -8,6 +8,7 @@ Frontend em HTML/CSS/JavaScript puro e uma API própria em Node.js + Express que
 
 - **Início:** hero com escudo, próximo jogo com contagem regressiva, último resultado, resumo da temporada (V/E/D, gols, aproveitamento, últimos 5), próximos jogos e seção sobre o clube.
 - **Jogos 2026:** todas as partidas do ano agrupadas por mês, com filtros *Todos / Resultados / Próximos* e por competição.
+- **Classificação:** tabela do Brasileirão com zonas, grupos da Libertadores e do Mineiro, e chaveamento do mata-mata (ida, volta e agregado) na Copa do Brasil, Libertadores e Mineiro.
 - **Detalhes da partida:** ficha técnica (estádio, cidade, árbitro, público), gols e assistências, cartões, substituições, estatísticas comparativas e escalações com formação e reservas.
 - Competições: Brasileirão Série A, Copa do Brasil, Libertadores, Sul-Americana e Campeonato Mineiro.
 - Layout responsivo (celular, tablet e desktop).
@@ -87,6 +88,7 @@ O projeto já tem um `render.yaml`. No Render, use **New + → Blueprint**, esco
 | GET | `/api/jogos/resumo` | Vitórias, empates, derrotas, gols, aproveitamento, últimos 5 |
 | GET | `/api/jogos/competicoes` | Competições com jogos na temporada |
 | GET | `/api/jogos/:id` | Detalhes da partida: gols, cartões, substituições, escalações, estatísticas |
+| GET | `/api/classificacao/:competicao` | Tabela (grupos) e chaveamento do mata-mata. Ex.: `bra.1`, `conmebol.libertadores`, `bra.copa_do_brazil`, `bra.camp.mineiro` |
 | GET | `/api/status` | Verifica se o servidor está no ar |
 
 ## API externa: ESPN

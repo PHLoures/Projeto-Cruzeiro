@@ -147,4 +147,34 @@ function mapSummary(summary) {
   };
 }
 
-module.exports = { mapEvent, mapSummary };
+function mapStandings(data) {
+  return (data.children || []).map((grupo) => {
+    const times = (grupo.standings?.entries || []).map((e) => {
+      const st = Object.fromEntries((e.stats || []).map((x) => [x.name, x.displayValue]));
+      return {
+        posicao: Number(st.rank) || null,
+        id: e.team?.id,
+        nome: e.team?.displayName,
+        logo: e.team?.logos?.[0]?.href || null,
+        jogos: Number(st.gamesPlayed) || 0,
+        vitorias: Number(st.wins) || 0,
+        empates: Number(st.ties) || 0,
+        derrotas: Number(st.losses) || 0,
+        golsPro: Number(st.pointsFor) || 0,
+        golsContra: Number(st.pointsAgainst) || 0,
+        saldo: st.pointDifferential || '0',
+        pontos: Number(st.points) || 0,
+        zona: e.note ? { descricao: e.note.description, cor: e.note.color } : null,
+        cruzeiro: e.team?.id === CRUZEIRO_ID,
+      };
+    }).sort((a, b) => (a.posicao ?? 99) - (b.posicao ?? 99));
+
+    return {
+      nome: (grupo.name || '').replace(/^Group /, 'Grupo '),
+      temCruzeiro: times.some((t) => t.cruzeiro),
+      times,
+    };
+  });
+}
+
+module.exports = { mapEvent, mapSummary, mapStandings };

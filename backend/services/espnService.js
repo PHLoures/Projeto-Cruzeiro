@@ -1,7 +1,7 @@
 // Comunicação com a API pública da ESPN (única parte do projeto que conhece a API externa)
 const config = require('../config');
 const { remember } = require('../utils/cache');
-const { mapEvent, mapSummary } = require('./matchMapper');
+const { mapEvent, mapSummary, mapStandings } = require('./matchMapper');
 
 const { baseUrl, teamId } = config.espn;
 
@@ -53,4 +53,13 @@ async function getMatchDetails(id) {
   });
 }
 
-module.exports = { getAllMatches, getMatchDetails };
+// Classificação (tabela) de uma competição; copas só de mata-mata não têm tabela
+function getStandings(league) {
+  return remember(`standings-${league}-${config.season}`, config.cacheTtl, async () => {
+    const url = `https://site.api.espn.com/apis/v2/sports/soccer/${league}/standings?season=${config.season}`;
+    const data = await getJson(url);
+    return mapStandings(data);
+  });
+}
+
+module.exports = { getAllMatches, getMatchDetails, getStandings };

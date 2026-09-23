@@ -15,6 +15,13 @@ module.exports = {
     teamId: '2022', // ID do Cruzeiro na ESPN
   },
 
+  // Fases de mata-mata exibidas no chaveamento (slug da ESPN -> nome exibido)
+  knockoutRounds: {
+    'bra.copa_do_brazil': { 'round-of-16': 'Oitavas', quarterfinals: 'Quartas', semifinals: 'Semifinal', final: 'Final' },
+    'conmebol.libertadores': { 'round-of-16': 'Oitavas', quarterfinals: 'Quartas', semifinals: 'Semifinal', final: 'Final' },
+    'bra.camp.mineiro': { 'playoffs---semifinals': 'Semifinal', 'playoffs---final': 'Final' },
+  },
+
   // Competições consultadas (slug da ESPN -> nome exibido)
   competitions: {
     'bra.1': 'Brasileirão Série A',

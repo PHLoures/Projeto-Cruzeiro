@@ -1,0 +1,15 @@
+# Configuração para publicar no Render (render.com) — plano gratuito
+services:
+  - type: web
+    name: projeto-cruzeiro
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/status
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: SEASON
+        value: "2026"

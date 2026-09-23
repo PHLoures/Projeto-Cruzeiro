@@ -73,6 +73,10 @@ Abra **http://localhost:3000**. Para reiniciar automaticamente ao editar o códi
 
 Se no futuro você trocar para uma API com chave (ex.: API-Football), coloque-a **somente** no `.env` (ex.: `API_FOOTBALL_KEY=...`) e leia com `process.env` em `backend/config.js`. O `.env` está no `.gitignore` e nunca vai para o GitHub.
 
+## Publicar no Render
+
+O projeto já tem um `render.yaml`. No Render, use **New + → Blueprint**, escolha este repositório e clique em **Apply**. Passo a passo detalhado em `COMO-RODAR.txt`.
+
 ## Endpoints
 
 | Método | Rota | Descrição |

@@ -93,3 +93,29 @@ com estes nomes exatos:
    partida.jpg  -> topo da página de detalhes da partida
 
 Depois recarregue a página no navegador (Cmd + Shift + R).
+
+
+----------------------------------------------------------
+COLOCAR O SITE NO AR (RENDER — GRÁTIS)
+----------------------------------------------------------
+
+1) Acesse https://render.com e clique em "Get Started".
+   Entre com sua conta do GitHub (botão "GitHub").
+
+2) No painel, clique em "New +"  ->  "Blueprint".
+
+3) Escolha o repositório "Projeto-Cruzeiro"
+   (se não aparecer, clique em "Configure GitHub" e libere o acesso a ele).
+
+4) O Render lê o arquivo render.yaml sozinho. Clique em "Apply"/"Deploy".
+
+5) Espere de 2 a 5 minutos. O endereço do site aparece no topo, algo como:
+
+   https://projeto-cruzeiro.onrender.com
+
+Pronto! A partir daí, todo "git push" atualiza o site automaticamente.
+
+Observações do plano grátis:
+- Após 15 min sem visitas o site "dorme"; o próximo acesso leva ~30-50 s
+  para acordar, depois fica rápido normalmente.
+- Não precisa de cartão de crédito nem de API Key.

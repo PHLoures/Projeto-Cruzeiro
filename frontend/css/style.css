@@ -327,13 +327,3 @@ a.jogo:hover { transform: translateY(-2px); border-left-color: var(--azul); box-
   .marco::before { left: 56px; }
   .marco .ano { font-size: 1.1rem; }
 }
-
-/* Cards de títulos com a silhueta da taça ao lado */
-.trofeu.com-taca { display: grid; grid-template-columns: minmax(0, 1fr) 96px; gap: 16px; align-items: stretch; }
-.taca {
-  display: grid; place-items: center; padding: 12px; border-radius: 12px;
-  background: radial-gradient(circle at 50% 30%, var(--azul-claro), var(--azul) 55%, var(--azul-escuro));
-  box-shadow: inset 0 -12px 24px rgba(0, 0, 0, 0.25);
-}
-.taca img { max-height: 110px; width: auto; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35)); transition: transform 0.3s; }
-.trofeu.com-taca:hover .taca img { transform: translateY(-4px) scale(1.05); }

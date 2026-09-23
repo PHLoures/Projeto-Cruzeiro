@@ -273,3 +273,15 @@ a.jogo:hover { transform: translateY(-2px); border-left-color: var(--azul); box-
   .titulos { grid-template-columns: 1fr 1fr; }
   .eventos li { grid-template-columns: 40px 22px 1fr; }
 }
+
+/* ---------- Faixa de taças (página de jogos) ---------- */
+.faixa-trofeus {
+  width: 100%; margin-top: 36px;
+  /* deixa o fundo azul da imagem preto e o "screen" o faz sumir, mantendo só as taças */
+  filter: grayscale(1) contrast(4); mix-blend-mode: screen; opacity: 0.85;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.page-header { padding-bottom: 32px; }
+.creditos { line-height: 1.7; }
+.creditos strong { color: var(--branco); }

@@ -4,7 +4,7 @@ function confronto(m, mostrarPlacar) {
   const meio = mostrarPlacar
     ? `<div class="placar-grande">${esc(m.home.score)} × ${esc(m.away.score)}</div>`
     : '<div class="vs">VS</div>';
-  const time = (t) => `<div class="time"><img src="${esc(t.logo || '')}" alt=""><span>${esc(t.name)}</span></div>`;
+  const time = (t) => `<div class="time">${escudoTime(t)}<span>${esc(t.name)}</span></div>`;
   return `<div class="confronto">${time(m.home)}${meio}${time(m.away)}</div>`;
 }
 

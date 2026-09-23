@@ -285,3 +285,14 @@ a.jogo:hover { transform: translateY(-2px); border-left-color: var(--azul); box-
 .page-header { padding-bottom: 32px; }
 .creditos { line-height: 1.7; }
 .creditos strong { color: var(--branco); }
+
+/* Escudo genérico (quando a API não tem o escudo do time) */
+.escudo-generico {
+  display: inline-grid; place-items: center; flex-shrink: 0;
+  width: 34px; height: 34px; border-radius: 50% 50% 45% 45% / 40% 40% 60% 60%;
+  background: linear-gradient(160deg, #cbd5e1, #94a3b8); color: #fff;
+  font-family: var(--fonte-titulo); font-weight: 800; font-size: 0.9rem; letter-spacing: .5px;
+}
+.time .escudo-generico { width: 72px; height: 72px; font-size: 1.8rem; margin: 0 auto 10px; }
+.partida-header .time .escudo-generico { width: 96px; height: 96px; font-size: 2.4rem; }
+@media (max-width: 560px) { .time .escudo-generico { width: 56px; height: 56px; font-size: 1.4rem; } }

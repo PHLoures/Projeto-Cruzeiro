@@ -53,7 +53,7 @@ function blocoEscalacoes(m) {
   const jogador = (p) => `<li><b>${esc(p.number)}</b><span>${esc(p.name)}</span><span>${esc(p.position)}</span></li>`;
   const col = (l) => `
     <div class="escalacao">
-      <h4><img src="${esc(l.logo || '')}" alt="">${esc(l.team)} ${l.formation ? `<em>${esc(l.formation)}</em>` : ''}</h4>
+      <h4>${l.logo ? `<img src="${esc(l.logo)}" alt="" onerror="this.remove()">` : ''}${esc(l.team)} ${l.formation ? `<em>${esc(l.formation)}</em>` : ''}</h4>
       <ul>${l.starters.map(jogador).join('')}</ul>
       ${l.bench.length ? `<p class="reservas">Reservas</p><ul>${l.bench.map(jogador).join('')}</ul>` : ''}
     </div>`;
@@ -80,7 +80,7 @@ function blocoFicha(m) {
   try {
     const m = await api(`/jogos/${encodeURIComponent(id)}`);
     document.title = `${m.home.name} x ${m.away.name} · Cruzeiro`;
-    const time = (t) => `<div class="time"><img src="${esc(t.logo || '')}" alt=""><span>${esc(t.name)}</span></div>`;
+    const time = (t) => `<div class="time">${escudoTime(t)}<span>${esc(t.name)}</span></div>`;
     const meio = m.status.state === 'pre'
       ? `<div><div class="vs">VS</div><div>${fmt.hora(m.date)}</div></div>`
       : `<div class="placar-grande">${esc(m.home.score)} × ${esc(m.away.score)}</div>`;

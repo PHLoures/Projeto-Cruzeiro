@@ -36,8 +36,19 @@ function placar(m) {
   return `<span class="placar">${esc(m.home.score ?? '-')} × ${esc(m.away.score ?? '-')}</span>`;
 }
 
+// Escudo do time; se a API não tiver a imagem, mostra um escudo genérico com as iniciais
+function iniciais(nome) {
+  return String(nome || '?').split(/\s+/).filter((p) => p.length > 2 || /^[A-Z]/.test(p)).slice(0, 2).map((p) => p[0]).join('').toUpperCase();
+}
+
+function escudoTime(team) {
+  const alt = `<span class="escudo-generico" role="img" aria-label="${esc(team.name)}">${esc(iniciais(team.name))}</span>`;
+  if (!team.logo) return alt;
+  return `<img src="${esc(team.logo)}" alt="" loading="lazy" onerror="this.outerHTML=this.nextElementSibling.innerHTML"><template>${alt}</template>`;
+}
+
 function lado(team, nomePrimeiro = false) {
-  const img = `<img src="${esc(team.logo || '')}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">`;
+  const img = escudoTime(team);
   const nome = `<span class="${isCruzeiro(team) ? 'cruzeiro' : ''}">${esc(team.name)}</span>`;
   return nomePrimeiro ? nome + img : img + nome;
 }

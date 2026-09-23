@@ -41,7 +41,7 @@ select.addEventListener('change', () => { estado.competicao = select.value; rend
     estado.jogos = jogos;
     select.innerHTML += competicoes.map((c) => `<option value="${esc(c.id)}">${esc(c.nome)}</option>`).join('');
     const feitos = jogos.filter((m) => m.status.completed).length;
-    document.getElementById('subtitulo').textContent = `${jogos.length} partidas · ${feitos} disputadas · ${jogos.length - feitos} por disputar`;
+    document.getElementById('subtitulo').textContent = `${jogos.length} partidas · ${feitos} disputadas · ${jogos.length - feitos} para disputar`;
     render();
   } catch (e) {
     lista.innerHTML = `<p class="erro">${esc(e.message)}</p>`;

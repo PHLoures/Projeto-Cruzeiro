@@ -496,3 +496,10 @@ img[src*="/7632.png"] { transform: rotate(180deg); }
   .brand strong { display: none; }          /* o escudo já identifica o site */
   .nav-links .so-desktop { display: none; } /* o escudo leva ao início */
 }
+
+/* ---------- App (PWA) ---------- */
+.instalar-btn[hidden] { display: none; }
+/* Aberto como app no iPhone, a barra de status fica por cima: respeita a área segura */
+@media (display-mode: standalone) {
+  .navbar { padding-top: env(safe-area-inset-top); }
+}

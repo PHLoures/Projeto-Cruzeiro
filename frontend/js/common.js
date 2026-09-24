@@ -86,3 +86,28 @@ if (botaoTema) {
     try { localStorage.setItem('tema', novo); } catch (e) { /* navegador sem armazenamento */ }
   });
 }
+
+// ---------- App (PWA) ----------
+// Registra o service worker: permite instalar o site como aplicativo e abrir sem internet
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+}
+
+// Botão "Instalar app" (Android e Chrome/Edge no computador mostram o convite de instalação)
+let convite = null;
+const botaoInstalar = document.getElementById('instalar');
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  convite = e;
+  if (botaoInstalar) botaoInstalar.hidden = false;
+});
+if (botaoInstalar) {
+  botaoInstalar.addEventListener('click', async () => {
+    if (!convite) return;
+    convite.prompt();
+    await convite.userChoice;
+    convite = null;
+    botaoInstalar.hidden = true;
+  });
+}
+window.addEventListener('appinstalled', () => { if (botaoInstalar) botaoInstalar.hidden = true; });
